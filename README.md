@@ -55,7 +55,7 @@ This web application helps restaurants receive smarter product suggestions by an
 4. Review the results, which show Product that Ari can pitch to the input restaurants.
 ### Example:
 ![Alt text](./static/fuzzy-result.png)
-![Alt text](./static/ai-result.png)
+![Alt text](./static/ai-results.png)
 
 ### Use Case
 * Sales reps can find matching products in the catalog for specific dishes offered by restaurants.
