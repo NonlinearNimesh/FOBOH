@@ -13,22 +13,35 @@ with open('product_encoder.pkl', 'rb') as f:
 
 app = Flask(__name__)
 
-# Sample recommendation model function
 def recommend_ingredients(restaurant_name):
     loaded_model = load_model('ing_recommendation.h5')
-
-    # Encode the restaurant name
     encoded_restaurant = restaurant_encoder.transform([restaurant_name])
-
-    # Make a prediction
     predictions = loaded_model.predict(np.array([encoded_restaurant]))
-
-    # Get the top 5 predicted products
     top_5_products = np.argsort(predictions[0])[-5:][::-1]
     top_5_product_names = product_encoder.inverse_transform(top_5_products)
     top_5_probabilities = predictions[0][top_5_products]
-
     return list(top_5_product_names), list(top_5_probabilities)
+
+import sqlite3
+
+def get_matched_products(sqlite_db_path, table_name, restaurant_name):
+    restaurant_name = restaurant_name.lower()
+    conn = sqlite3.connect(sqlite_db_path)
+    try:
+        cur = conn.cursor()
+        query = f"""
+            SELECT MatchedProduct FROM {table_name}
+            WHERE Restaurant = ?
+        """
+        cur.execute(query, (restaurant_name,))
+        matched_products = cur.fetchall()
+        matched = [product[0] for product in matched_products] if matched_products else []
+        print(matched)
+        return matched
+    finally:
+        conn.close()
+
+
 
 @app.route('/')
 def index():
@@ -39,6 +52,14 @@ def recommend():
     restaurant_name = request.form.get('restaurant_name')
     print(restaurant_name)
     restaurant_name = restaurant_name.lower()
+    matching_type = request.form.get('matching_type')
+    print("<<<<<<<<<<<<<<<<<<<<<<<<<", matching_type)
+    if matching_type == 'fuzzy':
+        print("In Fuzzy")
+        sqlite_db_path = "fuzzy_db.db"
+        table_name = "fuzzy_matching"
+        ingredients = get_matched_products(sqlite_db_path, table_name, restaurant_name)
+        return jsonify(ingredients=ingredients)
     ingredients, prob = recommend_ingredients(restaurant_name)
     return jsonify(ingredients=ingredients)
 
