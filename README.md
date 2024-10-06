@@ -50,7 +50,7 @@ This web application helps restaurants receive smarter product suggestions by an
 3. Once the server is running, go to `http://127.0.0.1:5000` in your browser.
 ### How to Use
 1. Enter the restaurant name into the input field on the homepage.
-2. Choose between "AI-based" or "Fuzzy matching" ingredient recommendations using the radio buttons.(Currently only AI-Based is there)
+2. Choose between "AI-based" or "Fuzzy matching" ingredient recommendations using the radio buttons.
 3. Click the "Submit" button to get product suggestions.
 4. Review the results, which show Product that Ari can pitch to the input restaurants.
 ### Example:
