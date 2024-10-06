@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  web:
+    image:  recommendation:v1.0.0 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hobof
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./templates:/app/templates
+    environment:
+      - FLASK_ENV=development 
+    command: python app.py
