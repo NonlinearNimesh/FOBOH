@@ -47,6 +47,7 @@ This web application helps restaurants receive smarter product suggestions by an
 
 ### Prerequisites
 - Dockers
+- linux
 
 ### Access the Web App
 1. Visit http://123.345.23.1:5000/. (dummy)
