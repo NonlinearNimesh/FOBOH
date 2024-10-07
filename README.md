@@ -4,6 +4,7 @@ An automated solution for getting the recommendation of ingredients/products tha
 ## Table of Contents
 - [Project Overview](#overview)
 - [Implementation Flow](#Implementaion)
+- [Data](#data)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Tech stack](#technologies-used)
@@ -18,6 +19,12 @@ An automated solution for getting the recommendation of ingredients/products tha
  
 ## Implementation
 ![Alt text](./static/HOBOF-WorkFLowdrawio.jpg)
+
+## Data
+Data that is being used in order to complete this project can be accessed here
+```bash
+   https://drive.google.com/file/d/1PYQdGHW3b1g47GrPeZOxR7-Iw3kpoqnv/view?usp=drive_link
+   ```
 
 ## Installation
 * Cloning the repository
@@ -42,12 +49,13 @@ This web application helps restaurants receive smarter product suggestions by an
 - Dockers
 
 ### Access the Web App
-1. Visit http://123.345.23.1:5000/.
+1. Visit http://123.345.23.1:5000/. (dummy)
 2. If running locally, navigate to the project directory and start the server:
    ```bash
    python app.py
    ```
 3. Once the server is running, go to `http://127.0.0.1:5000` in your browser.
+
 ### How to Use
 1. Enter the restaurant name into the input field on the homepage.
 2. Choose between "AI-based" or "Fuzzy matching" ingredient recommendations using the radio buttons.
@@ -67,6 +75,7 @@ This web application helps restaurants receive smarter product suggestions by an
 - CSV
 - Dockers
 - GCP
+
 
 ## Contact
 [Nimesh Kumar](https://github.com/NonlinerNimesh) - imnimeshkumar@outlook.com
